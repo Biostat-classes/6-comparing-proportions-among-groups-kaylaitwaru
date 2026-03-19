@@ -1,6 +1,6 @@
 ---
 title: "Compare proportions among groups"
-author: "JSG"
+author: "kayla"
 format:
   html:
     embed-resources: true
@@ -245,14 +245,35 @@ Let’s look at some heart attack data. Read in the data using
 heart_attacks <- read.table("https://raw.githubusercontent.com/jsgosnell/CUNY-BioStats/master/datasets/heartatk4R.txt",header=T, stringsAsFactors = T)
 ```
 
+
 Every entry is a person that has suffered a heart attack. More
 information on the dataset can be found at
 
 http://statland.org/Software_Help/DataDesk/datafile.htm
 
 We want to again test if heart attacks occur equally across genders.
+```{r}
+table(heart_attacks$SEX)
+```
+```{r}
+binom.test(7779, 7779+5065)
+```
+```{r}
+chisq.test(table(heart_attacks$SEX), p=c(.50, .50))
+```
+```{r}
+
+```
+
 
 -   What if we know that males actually make up 50.8% of the population?
+```{r}
+table(heart_attacks$SEX)
+```
+
+```{r}
+binom.test(7779, 7779+5065, .508)
+```
 
 #### 2
 
