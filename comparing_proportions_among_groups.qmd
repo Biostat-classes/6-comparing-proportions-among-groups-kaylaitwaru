@@ -298,6 +298,21 @@ chisq.test(table(heart_attacks$DIED, heart_attacks$SEX))
 
 For people that have a heart attack before they turn 30, is survival
 independent of gender?
+```{r}
+chisq.test(table(heart_attacks[heart_attacks$AGE < 30, "SEX"], 
+                 heart_attacks[heart_attacks$AGE <30, "DIED"]))
+```
+```{r}
+#note warning on approximation, so check it
+chisq.test(table(heart_attacks[heart_attacks$AGE < 30, "SEX"], 
+                 heart_attacks[heart_attacks$AGE <30, "DIED"]))$expected
+```
+```{r}
+#several <1, so use fisher.test
+fisher.test(table(heart_attacks[heart_attacks$AGE < 30, "SEX"], 
+                  heart_attacks[heart_attacks$AGE <30, "DIED"]))
+```
+
 
 ### Dolphins
 
