@@ -278,6 +278,21 @@ binom.test(7779, 7779+5065, .508)
 #### 2
 
 Still using the heart attack data, is survival independent of gender?
+```{r}
+#note what this does
+table(heart_attacks$SEX, heart_attacks$DIED)
+```
+```{r}
+#then feed it to chisq.test (notice order here does not matter for 2x2 table)
+chisq.test(table(heart_attacks$SEX, heart_attacks$DIED))
+```
+```{r}
+chisq.test(table(heart_attacks$DIED, heart_attacks$SEX))
+```
+```{r}
+
+```
+
 
 #### 3
 
